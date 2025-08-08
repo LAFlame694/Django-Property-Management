@@ -38,7 +38,7 @@ a {
 }
 
 .hero-section .section-content {
-    padding: 2rem 2rem 0 2rem;
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 .hero-section .section-content p {
@@ -58,6 +58,7 @@ a {
     display: flex;
     justify-content: space-between;
     padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .section-details {
@@ -73,6 +74,33 @@ a {
 /* login form styling */
 .login-input {
     width: 20rem;
+}
+
+/* manage_property.html.html styling */
+.heading {
+    padding: 40px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading h1 span {
+    color: dodgerblue;
+}
+
+.heading p {
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+.content-wrapper {
+    display: flex;
+}
+
+.content-wrapper .content-details {
+    text-align: center;
 }
 
 @media screen and (max-width: 640px) {

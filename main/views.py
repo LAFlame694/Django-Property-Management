@@ -21,7 +21,7 @@ def home(request):
     apartments = Apartment.objects.count()
     bedsitters = Bedsitter.objects.count()
     tenants = Profile.objects.count()
-    return render(request, 'main/base.html', 
+    return render(request, 'main/home.html', 
                   {"apartments": apartments, 
                    "bedsitters": bedsitters, 
                    "tenants": tenants,

@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse" id="navbarColor04">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="{% url 'home' %}"
                 >Home
                 <span class="visually-hidden">(current)</span>
               </a>
@@ -84,9 +84,7 @@
         </div>
       </div>
     </nav>
-    {% include 'main/home.html' %}
 
-    <!---->
     {% block content %}
     <!---->
     {% endblock %}
