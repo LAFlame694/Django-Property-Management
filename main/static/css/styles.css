@@ -130,6 +130,37 @@ a {
     color: dodgerblue;
 }
 
+/* apartment_dashboard.html styling */
+#dashboard {
+    background-color: #ddf0eb;
+    padding-bottom: 25rem;
+}
+
+/* apartment_details.html styling */
+.container-fluid .bedsitter-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#bedsitters {
+    background-color: #ddf0eb;
+    padding-bottom: 10rem;
+}
+
+.bedsitter-card {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.bedsitter-card.occupied {
+    background: #d4edda; /* Green for occupied */
+}
+.bedsitter-card.vacant {
+    background: #f8d7da; /* Red for vacant */
+}
+
 
 /* Responsive media query code for max width 900px */
 @media screen and (max-width: 900px) {}
