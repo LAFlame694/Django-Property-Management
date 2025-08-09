@@ -13,4 +13,5 @@ urlpatterns = [
     path('tenant/<int:tenant_id>/', views.tenant_detail, name='tenant_detail'),
     path('tenant/add/', views.add_tenant, name='add_tenant'),
     path('tenant-dashboard-admin/', views.tenant_dashboard_admin, name='tenant_dashboard_admin'),
+    path('add-user/', views.add_user, name='add_user'),
 ]

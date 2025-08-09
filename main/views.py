@@ -1,9 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Apartment, Bedsitter
 from .forms import TenantForm
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .forms import CustomUserCreationForm
 
 # Create your views here.
+def add_user(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'User account created successfully.')
+            return redirect('tenant_dashboard_admin')  # Change to your dashboard URL name
+    else:
+        form = CustomUserCreationForm()
+    
+    return render(request, 'main/add_user.html', {'form': form})
+
 def tenant_dashboard_admin(request):
     return render(request, 'main/tenant_dashboard_admin.html')
 

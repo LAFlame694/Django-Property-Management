@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 <!---->
 {% block content %}
-<div class="container">
+<div class="container-fluid" id="add-tenant">
   <h2>Add New Tenant</h2>
   <form method="post">
     {% csrf_token %} {{ form.as_p }}
