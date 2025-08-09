@@ -1,9 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Apartment, Bedsitter
-from django.contrib.auth.views import LoginView
+from .forms import TenantForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
+def tenant_dashboard_admin(request):
+    return render(request, 'main/tenant_dashboard_admin.html')
+
+def add_tenant(request):
+    if request.method == 'POST':
+        form = TenantForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('tenant_dashboard')  # redirect after saving
+    else:
+        form = TenantForm()
+
+    return render(request, 'main/add_tenant.html', {'form': form})
+
 def tenant_detail(request, tenant_id):
     tenant = get_object_or_404(Profile, id=tenant_id)
     context = {'tenant': tenant,}

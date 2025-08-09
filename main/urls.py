@@ -11,4 +11,6 @@ urlpatterns = [
     path('apartment_dashboard/', views.apartment_dashboard, name='apartment_dashboard'),
     path('<int:apartment_id>/', views.apartment_detail, name='apartment_detail'),
     path('tenant/<int:tenant_id>/', views.tenant_detail, name='tenant_detail'),
+    path('tenant/add/', views.add_tenant, name='add_tenant'),
+    path('tenant-dashboard-admin/', views.tenant_dashboard_admin, name='tenant_dashboard_admin'),
 ]

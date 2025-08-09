@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+<!---->
+{% block content %}
+
+<div class="container-fluid" id="tenant-dashboard">
+  <h2 class="title-heading">Tenant Management Dashboard</h2>
+  <p class="title-text">Select an action below:</p>
+
+  <div class="container-fluid-wrapper">
+    <!-- Add User -->
+    <div class="container-fluid-contents">
+      <a href="#"><h4>Add a User</h4></a>
+      <p>Add a User to the System.</p>
+    </div>
+    <!-- Add Tenant -->
+    <div class="container-fluid-contents">
+      <a href="{% url 'add_tenant' %}"><h4>Add Tenant</h4></a>
+      <p>Register a new tenant in the system.</p>
+    </div>
+
+    <!-- Assign Tenant -->
+    <div class="container-fluid-contents">
+      <a href="#"><h4>Assign Tenant to Unit</h4></a>
+      <p>Link a tenant to a bedsitter unit.</p>
+    </div>
+
+    <!-- View Tenants -->
+    <div class="container-fluid-contents">
+      <a href="#"><h4>View Tenant Details</h4></a>
+      <p>See the profiles and details of all tenants.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
