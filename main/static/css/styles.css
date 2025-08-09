@@ -200,6 +200,7 @@ a {
 #tenant-dashboard .title-heading {
     color: dodgerblue;
     font-weight: 600;
+    text-align: left;
 }
 
 #tenant-dashboard .container-fluid-wrapper {

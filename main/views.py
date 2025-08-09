@@ -19,7 +19,9 @@ def add_user(request):
     return render(request, 'main/add_user.html', {'form': form})
 
 def tenant_dashboard_admin(request):
-    return render(request, 'main/tenant_dashboard_admin.html')
+    tenants = Profile.objects.all()
+    context = {'tenants': tenants}
+    return render(request, 'main/tenant_dashboard_admin.html', context)
 
 def add_tenant(request):
     if request.method == 'POST':
