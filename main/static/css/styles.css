@@ -190,7 +190,7 @@ a {
 /* tenant_dashboard_admin.html styling */
 #tenant-dashboard {
     background-color: #ddf0eb;
-    padding: 5rem 3rem 20rem 3rem;
+    padding: 5rem 3rem 5rem 3rem;
 }
 
 #tenant-dashboard .title-text {
@@ -225,7 +225,96 @@ a {
 /* add_tenant.html styling */
 #add-tenant {
     background-color: #ddf0eb;
-    padding: 5rem 3rem 10rem 3rem;
+    padding: 5rem 3rem 0 3rem;
+}
+
+#add-tenant h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: dodgerblue;
+    font-weight: 600;
+}
+
+#add-tenant .form-wrapper {
+    max-width: 500px; /* limit width */
+    margin: 0 auto; /* center horizontally */
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+#add-tenant .form-wrapper a {
+    padding: 10px;
+    border-radius: 8px;
+    color: black;
+}
+
+/* add_user.html styling */
+#add-user {
+    background-color: #ddf0eb;
+    padding: 5rem 3rem 0 3rem;
+}
+
+/* Center only the form horizontally */
+#add-user .form-wrapper {
+    max-width: 500px; /* limit width */
+    margin: 0 auto; /* center horizontally */
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Title styling */
+.title-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: dodgerblue;
+    font-weight: 600;
+}
+
+/* Consistent spacing between label-input groups */
+.form-group {
+    margin-bottom: 20px; /* space between fields */
+}
+
+/* Make all inputs match width and style */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%; /* force full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Specifically handle password fields */
+.form-group input[type="password"] {
+    display: block;
+    width: 100%;
+}
+
+/* Label styling */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px; /* small gap between label and input */
+}
+
+.errorlist {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Input focus effect */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
 }
 
 /* Responsive media query code for max width 900px */

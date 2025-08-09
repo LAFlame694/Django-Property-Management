@@ -3,26 +3,32 @@
 {% block content %}
 <div class="container-fluid" id="add-tenant">
   <h2>Add New Tenant</h2>
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button
-      type="submit"
-      style="
-        padding: 8px 15px;
-        background: green;
-        color: white;
-        border: none;
-        border-radius: 5px;
-      "
+  <div class="form-wrapper">
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button
+        type="submit"
+        style="
+          padding: 8px 15px;
+          background: green;
+          color: white;
+          border: none;
+          border-radius: 5px;
+        "
+      >
+        Save Tenant
+      </button>
+    </form>
+    <br />
+    <a
+      href="{% url 'tenant_dashboard_admin' %}"
+      class="btn-secondary"
+      style="text-decoration: none"
+      >Back</a
     >
-      Save Tenant
-    </button>
-  </form>
+  </div>
   <br />
-  <a
-    href="{% url 'tenant_dashboard_admin' %}"
-    style="text-decoration: none; color: gray"
-    >Back</a
-  >
+  <br />
+  <br />
 </div>
 {% endblock %}
