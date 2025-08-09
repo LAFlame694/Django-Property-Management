@@ -133,7 +133,12 @@ a {
 /* apartment_dashboard.html styling */
 #dashboard {
     background-color: #ddf0eb;
-    padding-bottom: 25rem;
+    padding: 5rem 3rem 25rem 3rem;
+}
+#dashboard h2 {
+    color: dodgerblue;
+    font-weight: 600;
+    padding-bottom: 1rem;
 }
 
 /* apartment_details.html styling */
@@ -146,7 +151,12 @@ a {
 
 #bedsitters {
     background-color: #ddf0eb;
-    padding-bottom: 10rem;
+    padding: 5rem 3rem 10rem 3rem;
+}
+
+#bedsitters h2 {
+    color: dodgerblue;
+    font-weight: 600;
 }
 
 .bedsitter-card {
@@ -161,6 +171,21 @@ a {
     background: #f8d7da; /* Red for vacant */
 }
 
+/* tenant_details.html styling */
+#tenant {
+    background-color: #ddf0eb;
+    padding: 5rem 3rem 10rem 3rem;
+}
+
+.tenant-card p {
+    color: black;
+}
+
+.container-fluid .card .tenant-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /* Responsive media query code for max width 900px */
 @media screen and (max-width: 900px) {}

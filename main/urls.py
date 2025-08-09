@@ -10,4 +10,5 @@ urlpatterns = [
     path('manage-property/', views.manage_property, name='manage_property'),
     path('apartment_dashboard/', views.apartment_dashboard, name='apartment_dashboard'),
     path('<int:apartment_id>/', views.apartment_detail, name='apartment_detail'),
+    path('tenant/<int:tenant_id>/', views.tenant_detail, name='tenant_detail'),
 ]

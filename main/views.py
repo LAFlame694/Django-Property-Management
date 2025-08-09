@@ -4,6 +4,11 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
+def tenant_detail(request, tenant_id):
+    tenant = get_object_or_404(Profile, id=tenant_id)
+    context = {'tenant': tenant,}
+    return render(request, 'main/tenant_detail.html', context)
+
 def apartment_detail(request, apartment_id):
     apartment = get_object_or_404(Apartment, id=apartment_id)
     bedsitters = apartment.bedsitters.select_related('tenant').all()

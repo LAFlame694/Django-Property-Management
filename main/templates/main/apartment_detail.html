@@ -13,7 +13,9 @@
       <h4>Room {{ bed.number }}</h4>
       {% if bed.tenant %}
       <p>Occupied by: {{ bed.tenant.first_name }} {{ bed.tenant.last_name }}</p>
-      <a href="#" style="color: blue">View Tenant</a>
+      <a href="{% url 'tenant_detail' bed.tenant.id %}" style="color: blue"
+        >View Tenant</a
+      >
       {% else %}
       <p>Vacant</p>
       <a href="#" style="color: green">Assign Tenant</a>
