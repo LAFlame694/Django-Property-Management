@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+<!---->
+{% block content %}
+<h2>{{ apartment.name }} - Bedsitters</h2>
+<p>{{ apartment.address }}, {{ apartment.city }}</p>
+
+<div
+  style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  "
+>
+  {% for bed in bedsitters %}
+  <div
+    style="padding: 15px; border-radius: 8px; background: {% if bed.tenant %}#d4edda{% else %}#f8d7da{% endif %};"
+  >
+    <h4>Room {{ bed.number }}</h4>
+    {% if bed.tenant %}
+    <p>Occupied by: {{ bed.tenant.first_name }} {{ bed.tenant.last_name }}</p>
+    <a href="#" style="color: blue">View Tenant</a>
+    {% else %}
+    <p>Vacant</p>
+    <a href="#" style="color: green">Assign Tenant</a>
+    {% endif %}
+  </div>
+  {% empty %}
+  <p>No bedsitters found.</p>
+  {% endfor %}
+</div>
+
+<a
+  href="{% url 'apartment_dashboard' %}"
+  style="
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: #6c757d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  "
+>
+  Back to Apartments
+</a>
+{% endblock %}

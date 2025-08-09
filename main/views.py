@@ -1,9 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Apartment, Bedsitter
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
+def apartment_detail(request, apartment_id):
+    apartment = get_object_or_404(Apartment, id=apartment_id)
+    bedsitters = apartment.bedsitters.select_related('tenant').all()
+    context = {
+        'apartment': apartment,
+        'bedsitters': bedsitters
+        }
+    return render(request, 'main/apartment_detail.html', context)
+
+def apartment_dashboard(request):
+    apartments = Apartment.objects.all()
+    context = {"apartments": apartments}
+    return render(request, "main/apartment_dashboard.html", context)
+
 def manage_property(reqeust):
     return render(reqeust, "main/manage_property.html", {})
 

@@ -8,4 +8,6 @@ urlpatterns = [
     path('tenant-dashboard/', views.tenant_dashboard, name='tenant_dashboard'),
     path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
     path('manage-property/', views.manage_property, name='manage_property'),
+    path('apartment_dashboard/', views.apartment_dashboard, name='apartment_dashboard'),
+    path('<int:apartment_id>/', views.apartment_detail, name='apartment_detail'),
 ]

@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 <!---->
 {% block content %}
-<section class="container-fluid">
+<section class="container-fluid" id="property">
   <div class="heading">
     <h1>Everything You Need to <span>Manage Properties</span></h1>
     <p>
@@ -11,24 +11,26 @@
   </div>
   <div class="content-wrapper">
     <div class="content-details">
-      <i class="fa-solid fa-building fa-lg"></i>
-      <h3>Apartment Management</h3>
+      <a href="{% url 'apartment_dashboard' %}"
+        ><i class="fa-solid fa-building fa-lg"></i
+      ></a>
+      <h4>Apartment Management</h4>
       <p>
         Organize and track all apartments with detailed information about each
         bedsitter unit.
       </p>
     </div>
     <div class="content-details">
-      <i class="fa-solid fa-users"></i>
-      <h3>Tenant Portal</h3>
+      <i class="fa-solid fa-users fa-lg"></i>
+      <h4>Tenant Portal</h4>
       <p>
         Manage tenant information, lease agreements and communication in one
         centralized location.
       </p>
     </div>
     <div class="content-details">
-      <i class="fa-solid fa-money-check-dollar"></i>
-      <h3>Rent allocation</h3>
+      <i class="fa-solid fa-money-check-dollar fa-lg"></i>
+      <h4>Rent allocation</h4>
       <p>
         Automated rent tracking, payment reminders, and financial record
         keeping.
