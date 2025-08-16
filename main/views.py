@@ -34,6 +34,10 @@ def add_tenant(request):
 
     return render(request, 'main/add_tenant.html', {'form': form})
 
+def tenant_list(request):
+    tenants = Profile.objects.all()
+    return render(request, 'main/tenant_list.html', {"tenants": tenants})
+
 def tenant_detail(request, tenant_id):
     tenant = get_object_or_404(Profile, id=tenant_id)
     context = {'tenant': tenant,}

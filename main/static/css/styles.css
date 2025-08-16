@@ -318,6 +318,32 @@ a {
     border-color: #007bff;
 }
 
+/* tenant_details.html styling */
+#tenant-list {
+    background-color: #ddf0eb;
+    padding: 5rem 3rem 10rem 3rem;
+}
+
+.container-fluid .tenant-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.container-fluid .tenant-wrapper .tenant-card {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: gold;
+    font-weight: 500;
+}
+
+.container-fluid .tenant-wrapper .tenant-card a {
+    color: black;
+    text-decoration: none;
+}
+
 /* Responsive media query code for max width 900px */
 @media screen and (max-width: 900px) {}
 
