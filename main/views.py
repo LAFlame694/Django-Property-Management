@@ -6,6 +6,9 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 
 # Create your views here.
+def command_center(request):
+    return render(request, 'main/command_center.html')
+
 def add_user(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
