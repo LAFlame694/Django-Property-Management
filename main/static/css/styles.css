@@ -34,7 +34,7 @@ a {
     background: #0dcaf0;
     color: white;
     border-radius: 20px;
-    transition: 0.2s ease-in;
+    transition: 0.3s ease-out;
 }
 
 .hero-section .section-content {
@@ -212,15 +212,20 @@ a {
 #tenant-dashboard .container-fluid-wrapper .container-fluid-contents {
         flex: 1;
         padding: 30px 0 30px 0;
-        background: #52cc4e;
+        background: white;
         border-radius: 8px;
         text-align: center;
         color: black;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-#tenant-dashboard .container-fluid-wrapper .container-fluid-contents:hover {
-    transform: translateY(-10px);
+#tenant-dashboard .container-fluid-wrapper .container-fluid-contents h4:hover {
+    color: dodgerblue;
+    transition: 0.3s ease-in-out;
+}
+
+#tenant-dashboard .container-fluid-wrapper .container-fluid-contents p {
+    color: #95cc4e;
 }
 
 /* add_tenant.html styling */
@@ -335,7 +340,7 @@ a {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    background-color: gold;
+    background-color: #4fe0c1;
     font-weight: 500;
 }
 

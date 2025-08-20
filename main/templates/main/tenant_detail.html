@@ -24,12 +24,10 @@
       <p><strong>Email:</strong> {{ tenant.email }}</p>
       <p><strong>ID Number:</strong> {{ tenant.id_number }}</p>
       {% if tenant.bedsitter %}
-      <p><strong>Bedsitter:</strong> {{ tenant.bedsitter.number }}</p>
+      <p><strong>Bedsitter:</strong> {{ tenant.bedsitter }}</p>
       {% endif %}
 
-      <a
-        href="{% url 'apartment_detail' tenant.bedsitter.apartment.id %}"
-        class="btn btn-secondary mt-3"
+      <a href="javascript:history.back()" class="btn btn-secondary mt-3"
         >Back</a
       >
     </div>

@@ -2,16 +2,19 @@
 
 <div class="container-fluid" id="tenant-list">
   <h2>All Tenants</h2>
-  <div class="tenant-wrapper">
-    {% for tenant in tenants %}
-    <div class="tenant-card">
-      <a href="{% url 'tenant_detail' tenant.id %}">
-        {{ tenant.first_name }} {{ tenant.last_name }}
-      </a>
+  <div>
+    <div class="tenant-wrapper">
+      {% for tenant in tenants %}
+      <div class="tenant-card">
+        <a href="{% url 'tenant_detail' tenant.id %}">
+          {{ tenant.first_name }} {{ tenant.last_name }}
+        </a>
+      </div>
+      {% empty %}
+      <p>No tenants found.</p>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p>No tenants found.</p>
-    {% endfor %}
+    <a href="javascript:history.back()" class="btn btn-secondary mt-3">Back</a>
   </div>
   <br />
   <br />
