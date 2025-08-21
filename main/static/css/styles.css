@@ -388,14 +388,18 @@ a {
     max-width: 100%; /* stays responsive on small screens */
 }
 
-#bottom-section .card-wrapper {
+.bottom-section {
+    margin-top: 1.5rem;
+}
+
+.bottom-section .card-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
 }
 
-#bottom-section .card-wrapper .card-details {
+.bottom-section .card-wrapper .card-details {
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
