@@ -6,6 +6,9 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 
 # Create your views here.
+def about(request):
+    return render(request, 'main/about.html')
+
 def command_center(request):
     apartment = Apartment.objects.all()
     context = {'apartments': apartment,}

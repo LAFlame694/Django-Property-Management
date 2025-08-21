@@ -16,4 +16,5 @@ urlpatterns = [
     path('tenant-dashboard-admin/', views.tenant_dashboard_admin, name='tenant_dashboard_admin'),
     path('add-user/', views.add_user, name='add_user'),
     path('command-center/', views.command_center, name='command_center'),
+    path('about/', views.about, name='about'),
 ]

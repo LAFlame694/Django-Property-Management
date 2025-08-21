@@ -421,6 +421,58 @@ a {
     height: 100%;
 }
 
+/* about.html styling */
+#footer {
+    background-color: #1d2530;
+    padding: 5rem 3rem 10rem 3rem;
+    align-items: center;
+}
+
+#footer .upper-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#footer .upper-section h4 {
+    color: white;
+}
+
+#footer .upper-section .about-us {
+    width: 40%;
+}
+
+#footer .upper-section .about-us .holder {
+    display: flex;
+}
+
+#footer .upper-section .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#footer .upper-section .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#footer .lower-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 0 0 0;
+}
+
+#footer .lower-section h3 {
+    color: white;
+}
+
 /* Responsive media query code for max width 900px */
 @media screen and (max-width: 1300px) {
     /* command_center.html styling */
