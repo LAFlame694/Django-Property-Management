@@ -7,7 +7,9 @@ from .forms import CustomUserCreationForm
 
 # Create your views here.
 def command_center(request):
-    return render(request, 'main/command_center.html')
+    apartment = Apartment.objects.all()
+    context = {'apartments': apartment,}
+    return render(request, 'main/command_center.html', context)
 
 def add_user(request):
     if request.method == 'POST':

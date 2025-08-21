@@ -34,6 +34,30 @@
       <p>completed----8</p>
     </div>
   </div>
+  <div class="bottom-section">
+    <div class="card-wrapper">
+      {% for apartment in apartments %}
+      <div class="card-details">
+        <h3>{{ apartment.name }}</h3>
+        <p>
+          {{ apartment.occupied_units }}/{{ apartment.total_units }} units
+          occupied
+        </p>
+
+        <!-- Progress bar -->
+        <div class="progress-bar">
+          <div
+            class="progress"
+            style="width: {{ apartment.occupied_units|floatformat:0 }}%"
+          ></div>
+        </div>
+
+        <p>✔ Occupied: {{ apartment.occupied_units }}</p>
+        <p>○ Available: {{ apartment.available_units }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% endblock %}

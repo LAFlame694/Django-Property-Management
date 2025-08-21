@@ -376,16 +376,62 @@ a {
     background-color: whitesmoke;
     padding: 3rem;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
 }
 
 #command-center .card-wrapper .card-details {
     background-color: white;
     padding: 3rem;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    width: 350px;   /* 👈 fixed equal width */
+    max-width: 100%; /* stays responsive on small screens */
+}
+
+#bottom-section .card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+#bottom-section .card-wrapper .card-details {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 280px;
+    text-align: center;
+}
+
+.progress-bar {
+    background: #eee;
+    border-radius: 8px;
+    height: 8px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress {
+    background: #4CAF50;
+    height: 100%;
 }
 
 /* Responsive media query code for max width 900px */
-@media screen and (max-width: 900px) {}
+@media screen and (max-width: 1300px) {
+    /* command_center.html styling */
+    #command-center .card-wrapper {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: whitesmoke;
+        padding: 3rem;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        border-radius: 15px;
+    }
+}
 
 /* Responsive media query code for max width 640px */
 @media screen and (max-width: 640px) {

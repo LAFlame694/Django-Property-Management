@@ -13,6 +13,24 @@ class Apartment(models.Model):
     
     class Meta:
         verbose_name_plural = "Apartments"
+    
+    @property
+    def total_units(self):
+        return self.bedsitters.count()
+    
+    @property
+    def occupied_units(self):
+        return self.bedsitters.filter(tenant__isnull=False).count()
+    
+    @property
+    def available_units(self):
+        return self.total_units - self.occupied_units
+    
+    @property
+    def occupancy_rate(self):
+        if self.total_units > 0:
+            return (self.occupied_units / self.total_units) * 100
+        return 0
 
 class Bedsitter(models.Model):
     apartment = models.ForeignKey(Apartment, related_name='bedsitters', on_delete=models.CASCADE)
