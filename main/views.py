@@ -3,7 +3,7 @@ from .models import Profile, Apartment, Bedsitter
 from .forms import TenantForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, TenantDetailsForm
 
 # Create your views here.
 def about(request):
@@ -48,8 +48,20 @@ def tenant_list(request):
 
 def tenant_detail(request, tenant_id):
     tenant = get_object_or_404(Profile, id=tenant_id)
-    context = {'tenant': tenant,}
-    return render(request, 'main/tenant_detail.html', context)
+
+    if request.method == "POST":
+        form = TenantDetailsForm(request.POST, request.FILES, instance=tenant)
+        if form.is_valid():
+            form.save()
+            return redirect("tenant_detail", tenant_id=tenant.id)
+    else:
+        form = TenantDetailsForm(instance=tenant)
+
+    context = {
+        "tenant": tenant,
+        "form": form,
+    }
+    return render(request, "main/tenant_detail.html", context)
 
 def apartment_detail(request, apartment_id):
     apartment = get_object_or_404(Apartment, id=apartment_id)
