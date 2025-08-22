@@ -17,4 +17,5 @@ urlpatterns = [
     path('add-user/', views.add_user, name='add_user'),
     path('command-center/', views.command_center, name='command_center'),
     path('about/', views.about, name='about'),
+    path('edit/<int:id>/', views.edit, name='edit'),
 ]

@@ -6,6 +6,22 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm, TenantDetailsForm
 
 # Create your views here.
+def edit(request, id):
+    if request.method == 'POST':
+        tenant = Profile.objects.get(pk=id)
+        form = TenantDetailsForm(request.POST, instance=tenant)
+        if form.is_valid():
+            form.save()
+            return render(request, 'main/edit.html', {
+                'form': form, 
+                'success': True
+            })
+    else:
+        tenant = Profile.objects.get(pk=id)
+        form = TenantDetailsForm(instance=tenant)
+    
+    return render(request, 'main/edit.html', {'form': form})
+
 def about(request):
     return render(request, 'main/about.html')
 
@@ -48,20 +64,8 @@ def tenant_list(request):
 
 def tenant_detail(request, tenant_id):
     tenant = get_object_or_404(Profile, id=tenant_id)
-
-    if request.method == "POST":
-        form = TenantDetailsForm(request.POST, request.FILES, instance=tenant)
-        if form.is_valid():
-            form.save()
-            return redirect("tenant_detail", tenant_id=tenant.id)
-    else:
-        form = TenantDetailsForm(instance=tenant)
-
-    context = {
-        "tenant": tenant,
-        "form": form,
-    }
-    return render(request, "main/tenant_detail.html", context)
+    context = {'tenant': tenant,}
+    return render(request, 'main/tenant_detail.html', context)
 
 def apartment_detail(request, apartment_id):
     apartment = get_object_or_404(Apartment, id=apartment_id)

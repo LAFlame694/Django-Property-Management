@@ -5,7 +5,9 @@
   <div class="card">
     <div class="card-header tenant-heading">
       <h2>Tenant Details</h2>
-      <a href="#"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+      <a href="{% url 'edit' tenant.id %}"
+        ><i class="fa-solid fa-pen-to-square fa-lg"></i
+      ></a>
     </div>
     <div class="card-photo">
       {% if tenant.profile_photo %}

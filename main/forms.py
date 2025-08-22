@@ -7,7 +7,27 @@ from .models import Profile
 class TenantDetailsForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["first_name", "last_name", "phone_number", "email", "id_number"]
+        fields = [
+            "first_name", 
+            "phone_number", 
+            "email", 
+            "id_number",
+            "bedsitter"
+        ]
+        labels = {
+            "first_name": "Name",
+            "phone_number": "Phone Number",
+            "email": "Email",
+            "id_number": "ID Number",
+            "bedsitter": "Bedsitter",
+        }
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone_number': forms.NumberInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'id_number': forms.NumberInput(attrs={'class': 'form-control'}),
+            "bedsitter": forms.TextInput(attrs={"readonly": "readonly"})
+        }
 
 class CustomUserCreationForm(UserCreationForm):
     first_name = forms.CharField(
