@@ -7,7 +7,7 @@
   {% if success %}
   <div class="alert alert-success" role="alert">
     Tenant added successfully.
-    <a href="{% url 'manage_property' %}" class="alert-link">Go to Main Menu</a>
+    <a href="{% url 'add_tenant' %}" class="alert-link">Add Tenant</a>
   </div>
   <br />
   <br />
@@ -41,6 +41,19 @@
       >
         Save Tenant
       </button>
+      <br />
+      <br />
+      <a
+        href="{% url 'tenant_dashboard_admin' %}"
+        class="btn btn-secondary"
+        style="
+          padding: 8px 15px;
+          color: white;
+          border: none;
+          border-radius: 5px;
+        "
+        >Back</a
+      >
     </form>
   </div>
   {% endif %}

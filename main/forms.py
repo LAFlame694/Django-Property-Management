@@ -26,8 +26,13 @@ class TenantDetailsForm(forms.ModelForm):
             'phone_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'id_number': forms.NumberInput(attrs={'class': 'form-control'}),
-            "bedsitter": forms.Select(attrs={"class": "form-control", "disabled": "disabled"}),
+            "bedsitter": forms.Select(attrs={"class": "form-control"}),
         }
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Make bedsitter field read-only but still keep its value on save
+        self.fields["bedsitter"].disabled = True
 
 class CustomUserCreationForm(UserCreationForm):
     first_name = forms.CharField(
