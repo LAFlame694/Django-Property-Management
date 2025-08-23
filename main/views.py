@@ -109,10 +109,18 @@ def dashboard_redirect(request):
     else:
         return redirect('tenant_dashboard')  # name of your tenant dashboard url
 
+def dashboard_redirect(request):
+    user = request.user
+    if user.is_authenticated:
+        if user.is_staff or user.is_superuser:
+            return redirect('home')
+        else:
+            return redirect('tenant_dashboard')
+    return redirect('login')
+
 def tenant_dashboard(request):
     return render(request, "main/tenant_dashboard.html", {})
 
-@login_required
 def home(request):
     apartments = Apartment.objects.count()
     bedsitters = Bedsitter.objects.count()

@@ -1,11 +1,14 @@
 from . import views
 from django.urls import path
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('login/', LoginView.as_view(template_name='main/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
     path('', views.home, name='home'),
     path('tenant-dashboard/', views.tenant_dashboard, name='tenant_dashboard'),
+    path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
     path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
     path('manage-property/', views.manage_property, name='manage_property'),
     path('apartment_dashboard/', views.apartment_dashboard, name='apartment_dashboard'),

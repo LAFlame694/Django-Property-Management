@@ -14,6 +14,7 @@
         portal.
       </p>
     </div>
+    {% if user.is_authenticated and user.is_staff %}
     <div class="section-content section-info">
       <div class="section-details">
         <div>
@@ -40,14 +41,42 @@
         </p>
       </div>
     </div>
+    {% elif user.is_authenticated and user.is_superuser %}
+    <div class="section-content section-info">
+      <div class="section-details">
+        <div>
+          <i class="fa-solid fa-building fa-2x"></i>
+          <span class="fs-2 fw-bold">{{ apartments }}</span>
+        </div>
+        <p class="fs-3 fw-bold">Apartments</p>
+      </div>
+      <div class="section-details">
+        <div>
+          <i class="fa-solid fa-key fa-2x"></i>
+          <span class="fs-2 fw-bold">{{ bedsitters }}</span>
+        </div>
+        <p class="fs-3 fw-bold">Bedsitters</p>
+      </div>
+      <div class="section-details">
+        <div>
+          <i class="fa-solid fa-users fa-2x"></i>
+          <span class="fs-2 fw-bold">{{ tenants }}</span>
+        </div>
+        <p class="fs-3 fw-bold">
+          Active <br />
+          Tenants
+        </p>
+      </div>
+    </div>
+    {% endif %}
     <div class="text-center">
-      <span
-        >Copyright &copy;
+      <span>
+        Copyright &copy;
         <script>
-          document.write(new Date()).getFullYear();
+          document.write(new Date().getFullYear());
         </script>
-        Osama's Programming Accademy.</span
-      >
+        Osama's Programming Accademy.
+      </span>
     </div>
   </div>
 </section>
