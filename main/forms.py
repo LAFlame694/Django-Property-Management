@@ -2,7 +2,26 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, Bedsitter
+
+"""class AssignTenantForm(forms.Form):
+    bedsitter = forms.ModelChoiceField(
+        queryset = Bedsitter.objects.all(),
+        label = "Select Bedsitter",
+        widget=forms.Select(attrs={'class': 'form-control'}),
+    )
+
+    tenant = forms.ModelChoiceField(
+        queryset = Profile.objects.filter(bedsitter__isnull=True),
+        label = "Select Tenant",
+        widget=forms.Select(attrs={'class': 'form-control'}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        initial_bedsitter = kwargs.pop('initial_bedsitter', None)
+        super().__init__(*args, **kwargs)
+        if initial_bedsitter:
+            self.fields['bedsitter'].initial = initial_bedsitter.id"""
 
 class TenantDetailsForm(forms.ModelForm):
     class Meta:
@@ -28,7 +47,7 @@ class TenantDetailsForm(forms.ModelForm):
             'id_number': forms.NumberInput(attrs={'class': 'form-control'}),
             "bedsitter": forms.Select(attrs={"class": "form-control"}),
         }
-        
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Make bedsitter field read-only but still keep its value on save

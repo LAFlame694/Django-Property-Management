@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+<!---->
+{% block content %}
+<div class="container mt-4">
+  <h3>Assign Tenant</h3>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">{{ form.tenant.label_tag }} {{ form.tenant }}</div>
+    <button type="submit" class="btn btn-success">Assign</button>
+    <a href="#" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
