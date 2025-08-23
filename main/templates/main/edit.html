@@ -1,27 +1,32 @@
 {% extends "main/base.html" %}
 <!---->
-{% block body %}
-<h3 class="text-center m-4">Update Tenant</h3>
+{% block content %}
+<div class="container-fluid" id="edit-tenant">
+  <h3 class="text-center m-4">Update Tenant</h3>
 
-{% if success %}
-<div class="alert alert-success" role="alert">
-  The Tenant updated successfully.
-  <a href="{% url 'manage_property' %}" class="alert-link">Go to Main Menu</a>
-</div>
+  {% if success %}
+  <div class="alert alert-success" role="alert">
+    The Tenant updated successfully.
+    <a href="{% url 'manage_property' %}" class="alert-link">Go to Main Menu</a>
+  </div>
 
-{% else %}
-<div class="row justify-content-center">
-  <div class="col-6">
-    <div class="card bg-light mb-3">
-      <div class="card-header">
-        <i class="fa-solid fa-pen-to-square fa-lg"></i>Update Tenant Information
-      </div>
-      <div class="card-body">
-        <form action="" method="POST">
-          {% csrf_token %} {{ form.as_p }}
-          <button type="submit" class="btn btn-primary">Update</button>
-          <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
-        </form>
+  {% else %}
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card bg-light mb-3">
+        <div class="card-header">
+          <i class="fa-solid fa-pen-to-square fa-lg"></i>Update Tenant
+          Information
+        </div>
+        <div class="card-body">
+          <form action="" method="POST">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="javascript:history.back()" class="btn btn-secondary"
+              >Cancel</a
+            >
+          </form>
+        </div>
       </div>
     </div>
   </div>

@@ -473,6 +473,12 @@ a {
     color: white;
 }
 
+/*edit.html styling */
+#edit-tenant {
+    background-color: #ddf0eb;
+    padding: 3rem 3rem 3rem 3rem;
+}
+
 /* Responsive media query code for max width 900px */
 @media screen and (max-width: 1300px) {
     /* command_center.html styling */

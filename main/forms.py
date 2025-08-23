@@ -26,7 +26,7 @@ class TenantDetailsForm(forms.ModelForm):
             'phone_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'id_number': forms.NumberInput(attrs={'class': 'form-control'}),
-            "bedsitter": forms.TextInput(attrs={"readonly": "readonly"})
+            "bedsitter": forms.Select(attrs={"class": "form-control", "disabled": "disabled"}),
         }
 
 class CustomUserCreationForm(UserCreationForm):

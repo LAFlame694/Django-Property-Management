@@ -15,6 +15,7 @@ def edit(request, id):
             return render(request, 'main/edit.html', {
                 'form': form, 
                 'success': True
+                
             })
     else:
         tenant = Profile.objects.get(pk=id)
@@ -52,7 +53,10 @@ def add_tenant(request):
         form = TenantForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('tenant_dashboard')  # redirect after saving
+            return render(request, 'main/add_tenant.html', {
+                "form": TenantForm(),
+                "success": True
+            })  # redirect after saving
     else:
         form = TenantForm()
 
