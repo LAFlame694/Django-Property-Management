@@ -13,6 +13,7 @@ html {
     overflow-x: hidden;
     height: 100vh;
     transition: 0.4s;
+    background: #ddf0eb;
 }
 
 a {

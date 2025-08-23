@@ -3,24 +3,22 @@ from .models import Profile, Apartment, Bedsitter
 from .forms import TenantForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserCreationForm, TenantDetailsForm
+from .forms import CustomUserCreationForm, TenantDetailsForm, AssignTenantForm
 
 # Create your views here.
-"""def assign_tenant(request, bedsitter_id):
-    initial_bedsitter = get_object_or_404(Bedsitter, id=bedsitter_id)
-
+def assign_tenant(request, bedsitter_id):
+    bedsitter = get_object_or_404(Bedsitter, id=bedsitter_id)
     if request.method == 'POST':
         form = AssignTenantForm(request.POST)
         if form.is_valid():
-            bedsitter = form.cleaned_data['bedsitter']
             tenant = form.cleaned_data['tenant']
-
             tenant.bedsitter = bedsitter
             tenant.save()
+            messages.success(request, 'Tenant assigned successfully!')
             return redirect('apartment_detail', apartment_id=bedsitter.apartment.id)
     else:
-        form = AssignTenantForm(bedsitter=initial_bedsitter)
-    return render(request, 'main/assign_tenant.html', {'form': form})"""
+        form = AssignTenantForm()
+    return render(request, 'main/assign_tenant.html', {'form': form, 'bedsitter': bedsitter})
 
 
 def edit(request, id):

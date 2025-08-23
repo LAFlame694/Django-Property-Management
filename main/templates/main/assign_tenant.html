@@ -1,14 +1,25 @@
 {% extends "main/base.html" %}
 <!---->
 {% block content %}
-<div class="container mt-4">
-  <h3>Assign Tenant</h3>
-
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-group">{{ form.tenant.label_tag }} {{ form.tenant }}</div>
-    <button type="submit" class="btn btn-success">Assign</button>
-    <a href="#" class="btn btn-secondary">Cancel</a>
-  </form>
+<div class="container-fluid" id="assign-tenant">
+  <h3 class="text-center m-4">Assign Tenant</h3>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card bg-light mb-3">
+        <div class="card-header">
+          <i class="fa-solid fa-user-plus fa-lg"></i> Assign Tenant to Bedsitter
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Assign</button>
+            <a href="javascript:history.back()" class="btn btn-secondary"
+              >Cancel</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -18,7 +18,9 @@
       >
       {% else %}
       <p>Vacant</p>
-      <a href="#" style="color: green">Assign Tenant</a>
+      <a href="{% url 'assign_tenant' bed.id %}" style="color: green"
+        >Assign Tenant</a
+      >
       {% endif %}
     </div>
 

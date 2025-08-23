@@ -4,20 +4,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile, Bedsitter
 
-"""class AssignTenantForm(forms.Form):
-    bedsitter = forms.ModelChoiceField(
-        queryset = Bedsitter.objects.all(),
-        label = "Select Bedsitter",
-        widget=forms.Select(attrs={'class': 'form-control'}),
-    )
-
+class AssignTenantForm(forms.Form):
     tenant = forms.ModelChoiceField(
         queryset = Profile.objects.filter(bedsitter__isnull=True),
         label = "Select Tenant",
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
 
-    def __init__(self, *args, **kwargs):
+    """def __init__(self, *args, **kwargs):
         initial_bedsitter = kwargs.pop('initial_bedsitter', None)
         super().__init__(*args, **kwargs)
         if initial_bedsitter:
@@ -87,7 +81,10 @@ class CustomUserCreationForm(UserCreationForm):
 
 class TenantForm(forms.ModelForm):
     user = forms.ModelChoiceField(
-        queryset=User.objects.all(),
+        queryset=User.objects.filter(
+            is_superuser=False,
+            profile__bedsitter__isnull=True,
+        ),
         label="Select User",
         widget=forms.Select(attrs={'class': 'form-control'}),
         required=True
