@@ -31,7 +31,7 @@ class Invoice(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=20, 
-        choices=[('unpaid', 'Unpaid'), ('partial', 'Partially Paid')], 
+        choices=[('unpaid', 'Unpaid'), ('partial', 'Partially Paid'), ('paid', 'Paid')], 
         default='unpaid')
     
     def __str__(self):

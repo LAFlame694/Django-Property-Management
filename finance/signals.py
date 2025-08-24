@@ -4,7 +4,7 @@ from .models import Payment, TenantAccount, Invoice
 
 def recalc_tenant_account(tenant):
     if tenant is None:  # 👈 Prevent errors if tenant is missing
-        return
+        return "No tenant associated"
 
     # 1) Update each invoice status based on its payments (no .save() here)
     for invoice in tenant.invoices.all():

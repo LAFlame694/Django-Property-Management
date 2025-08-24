@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'widget_tweaks',
     'finance',
+    'mpesa',
 ]
 
 MIDDLEWARE = [
