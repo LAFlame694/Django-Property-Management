@@ -3,6 +3,9 @@ from django.dispatch import receiver
 from .models import Payment, TenantAccount, Invoice
 
 def recalc_tenant_account(tenant):
+    if tenant is None:  # 👈 Prevent errors if tenant is missing
+        return
+
     # 1) Update each invoice status based on its payments (no .save() here)
     for invoice in tenant.invoices.all():
         total_paid = sum(p.amount for p in invoice.payments.all())
@@ -28,12 +31,15 @@ def recalc_tenant_account(tenant):
 # ---- SIGNAL HOOKS ----
 @receiver(post_save, sender=Payment)
 def update_balance_on_payment_save(sender, instance, **kwargs):
-    recalc_tenant_account(instance.tenant)
+    if instance.tenant:
+        recalc_tenant_account(instance.tenant)
 
 @receiver(post_delete, sender=Payment)
 def update_balance_on_payment_delete(sender, instance, **kwargs):
-    recalc_tenant_account(instance.tenant)
+    if instance.tenant:
+        recalc_tenant_account(instance.tenant)
 
 @receiver(post_delete, sender=Invoice)
 def update_balance_on_invoice_delete(sender, instance, **kwargs):
-    recalc_tenant_account(instance.tenant)
+    if instance.tenant:
+        recalc_tenant_account(instance.tenant)

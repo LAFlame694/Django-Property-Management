@@ -35,7 +35,8 @@ class Invoice(models.Model):
         default='unpaid')
     
     def __str__(self):
-        return f"Invoice {self.id} for {self.tenant.username} - {self.status}"
+        tenant_name = self.tenant.username if self.tenant else "No Tenant"
+        return f"Invoice {self.id} for {tenant_name} - {self.status}"
     
 # Payment Record
 class Payment(models.Model):
